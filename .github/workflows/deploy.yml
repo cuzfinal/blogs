@@ -22,5 +22,4 @@ jobs:
           git config --global user.email s929459939@gmail.com
           git config --global user.name cuzfinal
           npm run deploy
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+        
