@@ -17,10 +17,14 @@ jobs:
           npm run clean
           npm run build
       
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+      
       - name: deploy
         run: |
           git config --global user.email s929459939@gmail.com
           git config --global user.name cuzfinal
-          git remote add origin https://github.com/cuzfinal/blogs.git
           npm run deploy
         
