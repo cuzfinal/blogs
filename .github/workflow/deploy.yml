@@ -1,0 +1,26 @@
+name: deploy
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-lastest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+      
+      - name: build
+        run: |
+          npm install
+          npm run clean
+          npm run build
+      
+      - name: deploy
+        run: |
+          git config --global user.email s929459939@gmail.com
+          git config --global user.name cuzfinal
+          npm run deploy
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
